@@ -6,21 +6,13 @@ use App\Http\Controllers\contactosController;
 
 Route::get('/usuarios', [contactosController::class,'index']);
     
+Route::get('/usuarios/{id}',[contactosController::class,'show']);
 
-Route::get('/usuarios/{id}', function (Request $request) {
-    return "Consultando un solo usuario";
-});
+Route::post('/usuarios', [contactosController::class,'store']);
+   
 
-Route::post('/usuarios', function (Request $request) {
-    return "Creando usuarios";
-});
+Route::put('/usuarios/{id}', [contactosController::class,'actualizar']);
 
-Route::put('/usuarios/{id}', function (Request $request) {
-    return "Actualizando usuarios";
-});
-
-Route::delete('/usuarios/{id}', function (Request $request) {
-    return "Borrando usuarios";
-});
+Route::delete('/usuarios/{id}', [contactosController::class,'eliminar']);
 
 
